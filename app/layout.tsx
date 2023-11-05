@@ -2,11 +2,12 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import AuthProvider from './auth/Provider'
+import NavBar from './NavBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Encouragement: An AI Day Planner',
+  title: 'Encouragement Day Planner',
   description: 'Set daily goals and track accomplishments each day and have an AI chatbot give feedback and encouragement.',
 }
 
@@ -18,7 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <NavBar />
+          {children}
+        </body>
       </AuthProvider>
       
     </html>
