@@ -1,8 +1,10 @@
 import { z } from 'zod';
 
 const taskSchema = z.object({
-    name: z.string().min(3),
-    price: z.number()
+    description: z.string(),
+    complete: z.boolean(),
+    taskCategoryId: z.number(),
+    userId: z.string()
 })
 
 export default taskSchema;

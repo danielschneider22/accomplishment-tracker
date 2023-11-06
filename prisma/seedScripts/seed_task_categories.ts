@@ -1,5 +1,8 @@
+/*run npx prisma db seed*/
+
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
+
 async function main() {
   ["General", "Exercise", "Learning", "Music", "Social"].forEach(async (category, i) => {
     const found = await prisma.taskCategory.findFirst({
@@ -16,6 +19,7 @@ async function main() {
     }
   })
 }
+
 main()
   .then(async () => {
     await prisma.$disconnect()
